@@ -18,7 +18,7 @@ const Hero = () => {
 
       <Link
         to="#"
-        className="bg-white text-gray-950 px-6 py-2 rounded-sm text-lg"
+        className="bg-white text-gray-950 px-6 py-2 rounded-sm text-lg  mt-4 font-semibold tracking-tighter"
       >
         {" "}
         Shop Now
