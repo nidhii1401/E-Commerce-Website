@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 
 const Collection = () => {
   return (
-    <section className="py-16 px-4 ">
+    <section className="py-16 px-12 ">
       <div className="container mx-auto flex gap-8">
         <div className="relative flex-1">
-          <img src={image2} alt="" className="w-full h-[700px] object-cover" />
+          <img src={image2} alt="" className="w-full h-[600px] object-cover" />
           <div className="absolute bottom-8 bg-white opacity-70 p-4 m-4">
             <h2 className="font-bold text-2xl text-gray-900 m-3">
               Women's Collection
@@ -25,7 +25,7 @@ const Collection = () => {
         </div>
 
         <div className="relative flex-1">
-          <img src={image1} alt="" className="w-full h-[700px] object-cover" />
+          <img src={image1} alt="" className="w-full h-[600px] object-cover" />
           <div className="absolute bottom-8 bg-white opacity-70 p-4 m-4">
             <h2 className="font-bold text-2xl text-gray-900 m-3">
               Men's Collection
