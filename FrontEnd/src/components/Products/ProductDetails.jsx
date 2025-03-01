@@ -25,8 +25,11 @@ const selectedProduct = {
 const ProductDetails = () => {
   return (
     <div className="p-6">
+      {/* Container */}
       <div className="max-w-6xl mx-auto bg-white p-8 rounded-lg">
+        {/* Chota container */}
         <div className="flex flex-col md:flex-row">
+
           {/* "Left Thumbnails" */}
           <div className="hidden md:flex flex-col space-y-4 mr-6">
             {selectedProduct.images.map((image, index) => (
@@ -38,8 +41,9 @@ const ProductDetails = () => {
               />
             ))}
           </div>
-          {/* Main image */}
+          {/*Left Thumbnail ends here  */}
 
+          {/* Main image */}
           <div className="md:w-1/2">
             <div className="mb-4">
               <img
@@ -49,6 +53,7 @@ const ProductDetails = () => {
               />
             </div>
           </div>
+          {/* Main img ends here */}
 
           {/* Mobile Thumbnail */}
           <div className="md:hidden flex overscroll-x-scroll space-x-4 mb-4">
@@ -62,20 +67,24 @@ const ProductDetails = () => {
             ))}
           </div>
 
-          {/* Right Section */}
 
+          {/* Right Section */}
           <div className="md:w-1/2 md:ml-10">
+            {/* Name - Product */}
             <h1 className=" text-2xl md:text-3xl font-semibold mb-2">
               {selectedProduct.name}
             </h1>
 
+            {/* prices - original */}
             <p className="text-lg text-gray-600 mb-1 line-through">
               {selectedProduct.originalPrice &&
                 `${selectedProduct.originalPrice}`}
             </p>
+            {/* product price */}
             <p className="text-xl text-gray-500 mb-2">
               $ {selectedProduct.price}
             </p>
+
             <p className="text-gray-600 mb-4">{selectedProduct.description}</p>
             {/* colors */}
             <div className="mb-4">
@@ -107,7 +116,7 @@ const ProductDetails = () => {
               </div>
             </div>
 
-            {/*  */}
+            {/* Quantity */}
             <div className="mb-6">
               <p className="text-gray-700">Quantity:</p>
               <div className="flex items-center space-x-4 mt-2">
@@ -128,6 +137,8 @@ const ProductDetails = () => {
               {" "}
               Add to cart
             </button>
+
+            {/* Characterstics */}
             <div className="mt-10 text-gray-700">
               <h3 className="text-xl font-bold mb-4"> Characterstics:</h3>
               <table className="w-full text-left text-sm text-gray-600">
@@ -143,9 +154,18 @@ const ProductDetails = () => {
                 </tbody>
               </table>
             </div>
+            
+
+          {/* right section ends here */}
           </div>
+
+          {/* Chota Container- end */}
         </div>
+
+        {/* End - Container */}
       </div>
+
+      {/* Main div end */}
     </div>
   );
 };
