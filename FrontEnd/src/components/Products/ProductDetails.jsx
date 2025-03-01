@@ -36,10 +36,10 @@ const ProductDetails = () => {
   }, [selectedProduct]);
 
   function decrement(){
-    if(quantity > 0){
+    if(quantity > 1){
       setQuantity(quantity-1)
     }
-    else setQuantity(0)
+    else setQuantity(1)
     
   }
   function increment (){
@@ -182,7 +182,7 @@ const ProductDetails = () => {
             </button>
 
             {/* Characterstics */}
-            
+
             <div className="mt-10 text-gray-700">
               <h3 className="text-xl font-bold mb-4"> Characterstics:</h3>
               <table className="w-full text-left text-sm text-gray-600">
