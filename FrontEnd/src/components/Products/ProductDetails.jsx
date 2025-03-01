@@ -182,6 +182,7 @@ const ProductDetails = () => {
             </button>
 
             {/* Characterstics */}
+            
             <div className="mt-10 text-gray-700">
               <h3 className="text-xl font-bold mb-4"> Characterstics:</h3>
               <table className="w-full text-left text-sm text-gray-600">
