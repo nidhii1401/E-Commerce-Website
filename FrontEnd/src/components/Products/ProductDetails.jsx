@@ -1,4 +1,73 @@
 import React, { useEffect, useState } from "react";
+import { toast } from "sonner";
+import ProductGrid from "./ProductGrid";
+
+const similarProducts = [
+  {
+    _id: 1,
+    name: "Product 1",
+    price: 100,
+    images: [
+      {
+        url: "https://picsum.photos/500?random=1",
+        altText: "Stylish Jacket 1",
+      },
+
+      {
+        url: "https://picsum.photos/500?random=2",
+        altText: "Stylish Jacket 2",
+      },
+    ],
+  },
+  {
+    _id: 2,
+    name: "Product 2",
+    price: 100,
+    images: [
+      {
+        url: "https://picsum.photos/500?random=3",
+        altText: "Stylish Jacket 1",
+      },
+
+      {
+        url: "https://picsum.photos/500?random=4",
+        altText: "Stylish Jacket 2",
+      },
+    ],
+  },
+  {
+    _id: 3,
+    name: "Product 3",
+    price: 100,
+    images: [
+      {
+        url: "https://picsum.photos/500?random=5",
+        altText: "Stylish Jacket 1",
+      },
+
+      {
+        url: "https://picsum.photos/500?random=6",
+        altText: "Stylish Jacket 2",
+      },
+    ],
+  },
+  {
+    _id: 4,
+    name: "Product 4",
+    price: 100,
+    images: [
+      {
+        url: "https://picsum.photos/500?random=7",
+        altText: "Stylish Jacket 1",
+      },
+
+      {
+        url: "https://picsum.photos/500?random=8",
+        altText: "Stylish Jacket 2",
+      },
+    ],
+  },
+];
 
 const selectedProduct = {
   name: "Stylish Jacket",
@@ -35,16 +104,33 @@ const ProductDetails = () => {
     }
   }, [selectedProduct]);
 
-  function decrement(){
-    if(quantity > 1){
-      setQuantity(quantity-1)
+  function decrement() {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    } else setQuantity(1);
+  }
+  function increment() {
+    setQuantity(quantity + 1);
+  }
+
+  function handleAddToCard() {
+    if (!selectedSize || !selectedColor) {
+      toast.error("Please select a size and a color before adding to cart.", {
+        duration: 1000,
+      });
+      return;
     }
-    else setQuantity(1)
-    
+
+    setIsBtnDisabled(true);
+
+    setTimeout(() => {
+      toast.success("Product added to cart.", {
+        duration: 1000,
+      });
+      setIsBtnDisabled(false);
+    }, 500);
   }
-  function increment (){
-    setQuantity(quantity+1)
-  }
+
   return (
     <div className="p-6">
       {/* Container */}
@@ -160,15 +246,18 @@ const ProductDetails = () => {
             <div className="mb-6">
               <p className="text-gray-700">Quantity:</p>
               <div className="flex items-center space-x-4 mt-2">
-                <button className="px-2 py-0.5 bg-gray-200 rounded text-lg"
-                onClick={decrement} 
+                <button
+                  className="px-2 py-0.5 bg-gray-200 rounded text-lg"
+                  onClick={decrement}
                 >
                   {" "}
                   -{" "}
                 </button>
                 <span className="text-lg">{quantity}</span>
-                <button className="px-2 py-0.5 bg-gray-200 rounded text-lg"
-                onClick={increment}>
+                <button
+                  className="px-2 py-0.5 bg-gray-200 rounded text-lg"
+                  onClick={increment}
+                >
                   {" "}
                   +{" "}
                 </button>
@@ -176,9 +265,17 @@ const ProductDetails = () => {
             </div>
 
             {/* Add to Cart */}
-            <button className="bg-black text-white py-2 px-6 rounded w-full uppercase">
+            <button
+              onClick={handleAddToCard}
+              disabled={isBtnDisabled}
+              className={`bg-black text-white py-2 px-6 rounded w-full mb-4 ${
+                isBtnDisabled
+                  ? "cursor-not-allowed opacity-50"
+                  : "hover:bg-gray-700"
+              } `}
+            >
               {" "}
-              Add to cart
+              {isBtnDisabled ? "Adding..." : "ADD TO CART"}
             </button>
 
             {/* Characterstics */}
@@ -203,6 +300,15 @@ const ProductDetails = () => {
           </div>
 
           {/* Chota Container- end */}
+        </div>
+
+        {/* you may also like wala section hai  */}
+
+        <div className="mt-20">
+          <h2 className="text-2xl text-center mb-4 font-bold">
+            You May Also Like
+          </h2>
+          <ProductGrid products={similarProducts} />
         </div>
 
         {/* End - Container */}
