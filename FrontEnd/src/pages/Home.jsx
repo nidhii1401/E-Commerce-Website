@@ -5,6 +5,7 @@ import NewItems from '../components/Products/NewItems'
 import ProductDetails from '../components/Products/ProductDetails'
 import ProductGrid from '../components/Products/ProductGrid'
 import Feature from '../components/Products/Feature'
+import FeatureSection from '../components/Products/FeatureSection'
 
 const placeHolderProducts = [
   {
@@ -160,6 +161,7 @@ const Home = () => {
         </div>
 
         <Feature/>
+        <FeatureSection/>
         
     </div>
   )
