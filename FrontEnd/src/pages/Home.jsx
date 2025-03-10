@@ -1,11 +1,11 @@
-import React from 'react'
-import Hero from '../components/Layout/Hero'
-import Collection from '../components/Products/Collection'
-import NewItems from '../components/Products/NewItems'
-import ProductDetails from '../components/Products/ProductDetails'
-import ProductGrid from '../components/Products/ProductGrid'
-import Feature from '../components/Products/Feature'
-import FeatureSection from '../components/Products/FeatureSection'
+import React from "react";
+import Hero from "../components/Layout/Hero";
+import Collection from "../components/Products/Collection";
+import NewItems from "../components/Products/NewItems";
+import ProductDetails from "../components/Products/ProductDetails";
+import ProductGrid from "../components/Products/ProductGrid";
+import Feature from "../components/Products/Feature";
+import FeatureSection from "../components/Products/FeatureSection";
 
 const placeHolderProducts = [
   {
@@ -138,33 +138,29 @@ const placeHolderProducts = [
   },
 ];
 
-
 const Home = () => {
   return (
     <div>
-        <Hero/>
-        <Collection/>
-        <NewItems/>
+      <Hero />
+      <Collection />
+      <NewItems />
 
-        {/* Best Seller */}
-        <h2 className='text-3xl text-center font-bold mb-4'>
-          Best Seller
+      {/* Best Seller */}
+      <h2 className="text-3xl text-center font-bold mb-4">Best Seller</h2>
+      <ProductDetails />
+
+      {/* top wears for women */}
+      <div className="container mx-auto">
+        <h2 className="text-3xl text-center font-bold mb-4">
+          Top Wear for Women
         </h2>
-        <ProductDetails/>
+        <ProductGrid products={placeHolderProducts} />
+      </div>
 
-        {/* top wears for women */}
-        <div className="container mx-auto">
-          <h2 className='text-3xl text-center font-bold mb-4'>
-            Top Wear for Women
-          </h2>
-          <ProductGrid products={placeHolderProducts}/>
-        </div>
-
-        <Feature/>
-        <FeatureSection/>
-        
+      <Feature />
+      <FeatureSection />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
